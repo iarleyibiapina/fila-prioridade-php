@@ -1,0 +1,15 @@
+{
+    "name": "iarl/aps_pryscilla",
+    "autoload": {
+        "psr-4": {
+            "iarl\\ApsPryscilla\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "iarley",
+            "email": "7iarley7@gmail.com"
+        }
+    ],
+    "require": {}
+}
