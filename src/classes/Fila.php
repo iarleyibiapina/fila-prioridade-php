@@ -2,8 +2,6 @@
 
 namespace iarl\ApsPryscilla\Classes;
 
-use iarl\ApsPryscilla\Classes\Prioridade;
-
 class Fila
 {
     protected array $fila = [];
@@ -46,29 +44,7 @@ class Fila
         return $item;
     }
 
-    public function run(Prioridade $priorityEnum): mixed
-    {
-        $priority = $priorityEnum->value;
-        return $this->$priority(); // executa de acordo com a prioridade definida
-    }
-
-    private function highPriority(): void
-    {
-        krsort($this->pesos);
-        foreach($this->pesos as $priority){
-            $this->handleItem($priority); // executa todos os items desta fila
-        };
-    }
-
-    private function lowPriority(): void
-    {
-        ksort($this->pesos);
-        foreach($this->pesos as $priority){
-            $this->handleItem($priority); // executa todos os items desta fila
-        };
-    }
-
-    private function defaultPriority()
+    public function run(): void
     {
         foreach($this->pesos as $priority){
             $this->handleItem($priority); // executa todos os items desta fila

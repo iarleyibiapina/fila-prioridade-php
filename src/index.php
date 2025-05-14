@@ -38,9 +38,7 @@ function meio2()
     
     $fila->pop();
     
-    // $fila->run(Prioridade::Alta);
-    // $fila->run(Prioridade::Baixa);
-    $fila->run(Prioridade::Media);
+    $fila->run();
     var_dump( $fila->get());
 }
 /**
@@ -101,10 +99,7 @@ function meio4()
     // 
     $fila->push(['nome' => 'F',  'peso' => 5]);
     
-    
-    $fila->run(Prioridade::Alta);
-    // $fila->run(Prioridade::Baixa);
-    // $fila->run(Prioridade::Media);
+    $fila->run();
     var_dump( $fila->get());
 }
     

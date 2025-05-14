@@ -3,7 +3,6 @@
 namespace iarl\ApsPryscilla\Classes;
 
 use SplPriorityQueue;
-use iarl\ApsPryscilla\Classes\Prioridade;
 
 class SplFila
 {
@@ -53,39 +52,9 @@ class SplFila
     }
     /**
      * Executa a fila e processa cada dado de acordo com a prioridade definida
-     * @param \iarl\ApsPryscilla\Classes\Prioridade $priority
-     * @return mixed
+     * @return void
      */
-    public function run(Prioridade $priority): mixed
-    {
-        $metodo = $priority->value;
-        return $this->$metodo();
-    }
-
-    private function highPriority(): void
-    {
-        while (!$this->fila->isEmpty()) {
-            $item = $this->fila->extract();
-            $this->handleItem($item['data'], $item['priority']);
-        }
-    }
-
-    private function lowPriority(): void
-    {
-        // SplPriorityQueue não tem fila invertida, então vamos simular
-        $todos = [];
-        while (!$this->fila->isEmpty()) {
-            $todos[] = $this->fila->extract();
-        }
-
-        usort($todos, fn($a, $b) => $a['priority'] <=> $b['priority']);
-
-        foreach ($todos as $item) {
-            $this->handleItem($item['data'], $item['priority']);
-        }
-    }
-
-    private function defaultPriority(): void
+    public function run(): void
     {
         // SplPriorityQueue não tem fila invertida, então vamos simular
         $todos = [];
